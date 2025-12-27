@@ -1,74 +1,175 @@
-# FF1 Slider Puzzle Solver
+# 🎮 FF1 Slider Puzzle Solver
 
-A web application to help solve the slider puzzle mini-game in Final Fantasy 1. Simply enter your puzzle configuration and get the optimal solution!
+A powerful web application to solve the challenging slider puzzle mini-game in Final Fantasy 1. Enter your puzzle configuration and get the optimal solution instantly!
 
-## Features
+🌐 **Live Demo**: [https://madramdesign.github.io/ff1-slider-puzzle/](https://madramdesign.github.io/ff1-slider-puzzle/)
 
-- **Easy Input**: Click on cells to enter puzzle values
-- **Visual Feedback**: See the puzzle state and solution steps
-- **Step-by-Step Solution**: Watch the solution play out automatically
-- **Solvability Check**: Validates if your puzzle is solvable before attempting to solve
-- **Responsive Design**: Works on desktop and mobile devices
+---
 
-## How to Use
+## ✨ Features
 
-1. Open `index.html` in your web browser
-2. Click on cells in the 4x4 grid to enter the puzzle values as they appear in your game
+- 🎯 **Optimal Solutions**: Uses advanced A* and IDA* algorithms to find the minimum number of moves
+- ⚡ **Lightning Fast**: Solves even complex puzzles in seconds
+- 📱 **Fully Responsive**: Works seamlessly on desktop, tablet, and mobile devices
+- 🎨 **Modern UI**: Beautiful gradient design with smooth animations
+- ✅ **Solvability Validation**: Automatically checks if your puzzle is solvable
+- 📋 **Simple Instructions**: Clear, compact display showing exactly which tiles to slide
+- 🎬 **Step-by-Step Visualization**: Watch the solution play out automatically
+- 🔄 **Interactive Navigation**: Click on any move to jump to that step
+
+---
+
+## 🚀 Quick Start
+
+### Using the Web App
+
+1. **Visit the live site** or open `index.html` in your browser
+2. **Enter your puzzle**: Click cells or use Tab to navigate, then type numbers directly
    - Use `0` for the blank/empty space
-   - Each number 1-15 should appear exactly once
-3. Click "Solve Puzzle" to get the solution
-4. Use "Play Solution" to watch the solution step-by-step
-5. Click "Reset" to clear the puzzle and start over
-6. Click "Random Puzzle" to generate a random solvable puzzle for testing
+   - Numbers 1-15 should each appear exactly once
+3. **Solve**: Click "Solve Puzzle" to get the optimal solution
+4. **Follow the solution**: See which tiles to slide in the compact instruction display
 
-## Files
+### Keyboard Navigation
 
-- `index.html` - Main HTML file
-- `styles.css` - Styling and layout
-- `solver.js` - Puzzle solving algorithm (A* with Manhattan distance heuristic)
-- `app.js` - User interface logic
-- `slider.py` - Original Python solver (reference)
+- **Tab** / **Shift+Tab**: Move between cells
+- **Arrow Keys**: Navigate in any direction
+- **Enter**: Move to next cell
+- **Numbers**: Type directly into cells (supports double digits like 10, 11, etc.)
 
-## Hosting Online
+---
 
-To make this accessible online, you can:
+## 📖 How It Works
 
-1. **GitHub Pages**: Push to a GitHub repository and enable GitHub Pages
-2. **Firebase Hosting**: Use Firebase Hosting (as per your project preferences)
-3. **Any Static Host**: Upload the HTML, CSS, and JS files to any static hosting service
+### Puzzle Input
+Enter the numbers exactly as they appear in your Final Fantasy 1 game. The solver will:
+1. Validate that all numbers 1-15 are present
+2. Check if the puzzle configuration is solvable
+3. Calculate the optimal solution using advanced algorithms
 
-The app runs entirely client-side - no backend server required!
+### Solution Display
+The solution appears as a compact row of tile buttons showing which tiles to slide, in order. The current step is highlighted, and you can:
+- Click any tile to jump to that move
+- Use "Play Solution" to animate through all steps
+- See the puzzle state at each step in the visualization
 
-## Algorithm
+---
 
-The solver uses A* search with Manhattan distance and linear conflict heuristics, plus IDA* for complex puzzles. This guarantees finding the optimal solution (minimum number of moves) when one exists.
+## 🧠 Algorithm Details
 
-## GitHub Pages Setup
+This solver uses state-of-the-art search algorithms optimized for the 15-puzzle:
 
-To host this on GitHub Pages:
+### **A* Search Algorithm**
+- **Heuristic**: Manhattan Distance + Linear Conflict
+- **Manhattan Distance**: Calculates the minimum distance each tile must travel
+- **Linear Conflict**: Detects when tiles are in correct row/column but reversed (adds +2 moves per conflict)
+- **Best for**: Medium complexity puzzles (< 40 estimated moves)
 
-1. **Create a GitHub repository** (if you haven't already):
+### **IDA* Algorithm** (Iterative Deepening A*)
+- **Memory Efficient**: Uses depth-first search with iterative deepening
+- **Automatic Selection**: Used automatically for complex puzzles (> 40 estimated moves)
+- **Best for**: Hard puzzles that require many moves
+
+Both algorithms guarantee finding the **optimal solution** (minimum number of moves) when one exists.
+
+---
+
+## 📁 Project Structure
+
+```
+ff1-slider-puzzle/
+├── index.html          # Main HTML structure
+├── styles.css          # Modern styling and responsive design
+├── solver.js           # Core solving algorithms (A*, IDA*)
+├── app.js              # User interface and interaction logic
+├── slider.py           # Original Python solver (reference)
+└── README.md           # This file
+```
+
+---
+
+## 🛠️ Technical Stack
+
+- **Pure JavaScript**: No dependencies, runs entirely client-side
+- **Vanilla HTML/CSS**: Modern, responsive design
+- **Advanced Algorithms**: A* and IDA* with optimized heuristics
+
+---
+
+## 🎯 Use Cases
+
+- **Final Fantasy 1 Players**: Quickly solve the ship mini-game puzzle
+- **Puzzle Enthusiasts**: Test and solve 15-puzzle configurations
+- **Students**: Learn about search algorithms and heuristics
+- **Developers**: Reference implementation of A* and IDA* algorithms
+
+---
+
+## 🌐 Deployment
+
+This app is designed to work on any static hosting service:
+
+- ✅ **GitHub Pages** (currently deployed)
+- ✅ **Netlify**
+- ✅ **Vercel**
+- ✅ **Firebase Hosting**
+- ✅ **Any static file server**
+
+No backend required - everything runs in the browser!
+
+---
+
+## 📝 Local Development
+
+1. **Clone the repository**:
    ```bash
-   git init
-   git add .
-   git commit -m "Initial commit: FF1 Slider Puzzle Solver"
-   git branch -M main
-   git remote add origin https://github.com/YOUR_USERNAME/YOUR_REPO_NAME.git
-   git push -u origin main
+   git clone https://github.com/madramdesign/ff1-slider-puzzle.git
+   cd ff1-slider-puzzle
    ```
 
-2. **Enable GitHub Pages**:
-   - Go to your repository on GitHub
-   - Click **Settings** → **Pages** (in the left sidebar)
-   - Under "Source", select **Deploy from a branch**
-   - Choose branch: **main** (or **master**)
-   - Choose folder: **/ (root)**
-   - Click **Save**
+2. **Open in browser**:
+   ```bash
+   # Simply open index.html in your web browser
+   # Or use a local server:
+   python -m http.server 8000
+   # Then visit http://localhost:8000
+   ```
 
-3. **Access your site**:
-   - Your site will be available at: `https://YOUR_USERNAME.github.io/YOUR_REPO_NAME/`
-   - It may take a few minutes to deploy initially
+3. **That's it!** No build process or dependencies needed.
 
-That's it! Your puzzle solver will be live on GitHub Pages. 🎉
+---
 
+## 🤝 Contributing
 
+Contributions are welcome! Feel free to:
+- Report bugs
+- Suggest new features
+- Submit pull requests
+- Improve documentation
+
+---
+
+## 📄 License
+
+This project is open source and available for educational and personal use.
+
+---
+
+## 🙏 Acknowledgments
+
+- Final Fantasy 1 by Square Enix
+- A* and IDA* algorithms for optimal pathfinding
+- Manhattan Distance and Linear Conflict heuristics
+
+---
+
+## 💡 Tips
+
+- **Double-digit numbers**: Type `10`, `11`, `12`, `13`, `14`, or `15` directly
+- **Quick input**: Use Tab to move between cells quickly
+- **Random puzzles**: Click "Random Puzzle" to test with a solvable configuration
+- **Visualization**: Use "Play Solution" to see each step animated
+
+---
+
+**Made with ❤️ for Final Fantasy 1 players**
